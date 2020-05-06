@@ -40,7 +40,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 LOCAL_APPS = [
-    'gallery.apps.SpotifydataConfig',
+    'spotifyData.apps.SpotifydataConfig',
 ]
 
 OTHER_APPS = [
