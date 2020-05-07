@@ -19,7 +19,12 @@ from django.urls import path
 import spotifyData.api_views
 
 urlpatterns = [
-    path('api/hello/', spotifyData.api_views.hello, name='hello'),
+    path('api/v1/user-profile/', spotifyData.api_views.get_user_profile, name='user-profile'),
+    path('api/v1/user-playlists/', spotifyData.api_views.get_user_playlists, name='user-playlists'),
+    path('api/v1/saved-tracks/', spotifyData.api_views.get_user_saved_tracks, name='saved-tracks'),
+
 
     path('admin/', admin.site.urls),
+    path('sign-in/', spotifyData.api_views.sign_in, name='sign-in'),
+    path('after-sign-in/', spotifyData.api_views.after_sign_in, name='after-sign-in')
 ]

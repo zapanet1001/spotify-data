@@ -308,7 +308,8 @@ ENV/
 env.bak/
 venv.bak/
 pip-selfcheck.json
-
+.cache-*
+*.docx
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
