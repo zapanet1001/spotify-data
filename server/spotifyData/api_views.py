@@ -6,11 +6,11 @@ import webbrowser
 import spotipy
 import spotipy.util as util
 from spotipy import oauth2
-scope = 'user-library-read'
-SPOTIPY_CLIENT_ID = '293ff85d0b44417a90c6ce737d4e31cb'
-SPOTIPY_CLIENT_SECRET = 'de5e8784ea49446c9368b646a00bed1e'
-SPOTIPY_REDIRECT_URI = 'http://127.0.0.1:8000/after-sign-in/'
-username = 'zapanet1001'
+scope = ''
+SPOTIPY_CLIENT_ID = ''
+SPOTIPY_CLIENT_SECRET = ''
+SPOTIPY_REDIRECT_URI = ''
+username = ''
 
 from django.http import JsonResponse
 from spotifyData.serializers import PlayListSerializer
@@ -94,10 +94,16 @@ def get_user_profile(request):
     auth_url = sp_oauth.get_authorize_url()
     return HttpResponseRedirect(auth_url)
   sp = spotipy.Spotify(auth=token_info['access_token'])
-  total = []
-  results = sp.user(username)
   
-  return JsonResponse(results, safe=False)
+  results = sp.user(username)
+  total = []
+  total.append(results)
+  thisDict = {
+    "user": total
+  }
+  
+  
+  return JsonResponse(thisDict, safe=False)
 
 def get_user_playlists(request):
   sp_oauth = oauth2.SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI,
@@ -134,4 +140,21 @@ def get_user_saved_tracks(request):
   total = []
   results = sp.current_user_saved_tracks(limit=50)
   
+  
+  return JsonResponse(results, safe=False)
+
+def get_full_album(request):
+  sp_oauth = oauth2.SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI,
+                                   scope=scope, cache_path=".cache-" + username)
+  token_info = sp_oauth.get_cached_token()
+  if not token_info:
+    auth_url = sp_oauth.get_authorize_url()
+    return HttpResponseRedirect(auth_url)
+  sp = spotipy.Spotify(auth=token_info['access_token'])
+  total = []
+  results = sp.current_user_saved_tracks(limit=50)
+  for song in results['items']:
+    full = sp.album(song['track']['album']['id'])
+    print(full['label'])
+    
   return JsonResponse(results, safe=False)

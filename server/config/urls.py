@@ -22,7 +22,7 @@ urlpatterns = [
     path('api/v1/user-profile/', spotifyData.api_views.get_user_profile, name='user-profile'),
     path('api/v1/user-playlists/', spotifyData.api_views.get_user_playlists, name='user-playlists'),
     path('api/v1/saved-tracks/', spotifyData.api_views.get_user_saved_tracks, name='saved-tracks'),
-
+    path('api/v1/full-album/', spotifyData.api_views.get_full_album, name='full-album'),
 
     path('admin/', admin.site.urls),
     path('sign-in/', spotifyData.api_views.sign_in, name='sign-in'),

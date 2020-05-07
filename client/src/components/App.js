@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Tracks from './Tracks/Tracks';
+import User from './User/User';
 
 class App extends Component {
   render() {
@@ -13,7 +14,12 @@ class App extends Component {
           </nav>
         </div>
         <div className="row">
-            <Tracks />
+          <div className="col s4" >
+            <User />
+          </div>
+          <div className="col s8">
+            <Tracks/>
+          </div>
         </div>
         
       </div>
