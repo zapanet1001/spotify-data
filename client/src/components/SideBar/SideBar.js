@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import Flex from '../Flex';
 
 
 
 
-const SideBar = () => {
-
-    // var [tracks, setTracks] = useState([]);
-
-
+const SideBar = ({toggleHidden}) => {
     return (
-
         <Flex container flexDirection="column" justifyContent="flex-start" flexWrap="wrap">
           <p>Hello</p>
-          <p>Something</p>
+          <button onClick={toggleHidden}>Saved Tracks</button>
+          <button onClick={toggleHidden}>User Playlists</button>
         </Flex>
        
     )

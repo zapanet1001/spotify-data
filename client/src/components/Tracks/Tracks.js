@@ -5,7 +5,6 @@ import Flex from '../Flex';
 import axios from 'axios';
 
 
-
 const Tracks = () => {
     useEffect(() => {
         axios.get('/api/v1/saved-tracks')
@@ -16,8 +15,6 @@ const Tracks = () => {
 
     var [tracks, setTracks] = useState([]);
 
-
-    console.log(tracks);
     return (
         <Flex className="row" container justifyContent="space-between" flexWrap="wrap">
             {tracks.map(
@@ -34,26 +31,5 @@ const Tracks = () => {
     )
 
 }
-
-// const Tracks = props => {
-//     useEffect(() => {
-//       axios.get('/api/v1/saved-tracks')
-//         .then(res => 
-//             setState(
-//                 res.data.items.map((track) => (
-//                     <TrackSingle key={track.track.id} item={track.track} />
-//                 ))
-//             )
-//         )
-//     }, [])
-
-    
-//     const [state, setState] = useState('')
-//     return(
-//         <div>
-//             <p>{state}</p>
-//         </div>
-//     )
-// };
 
 export default Tracks;

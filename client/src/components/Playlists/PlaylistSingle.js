@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TrackSingle = ({type, name, image, popularity}) => {
+const PlaylistSingle = ({type, name, image}) => {
     return (
         <div className="col s3">
         <section className="card" >
@@ -8,12 +8,11 @@ const TrackSingle = ({type, name, image, popularity}) => {
                 <img src={image} alt={name} />
             </div>
             <div className="card-content">
-                <h6>{name}</h6>
+                <h4>{name}</h4>
                 <p>Type: {type}</p>
-                <p>Popularity: {popularity}</p>
             </div>   
         </section></div>
     )
 }
 
-export default TrackSingle;
+export default PlaylistSingle;
