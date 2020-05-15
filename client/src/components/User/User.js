@@ -6,12 +6,14 @@ import axios from 'axios';
 const UserSingle = ({item}) => (
     <div className="col s4">
         <div className="card" id={item.id}>
-            {/* <div className="card-image">
+            <div className="card-image">
                 <img src={item.images[0].url} alt={item.display_name} />
-                <span className="card-title">{item.display_name}</span>
-            </div> */}
+            </div>
             <div className="card-content">
                 <p>{item.display_name}</p>
+            </div>
+            <div className="card-action">
+                <a href={item.external_urls.spotify} target="_blank">Profile</a>
             </div>
         </div>
     </div>

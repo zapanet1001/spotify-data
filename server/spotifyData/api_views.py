@@ -6,11 +6,11 @@ import webbrowser
 import spotipy
 import spotipy.util as util
 from spotipy import oauth2
-scope = ''
-SPOTIPY_CLIENT_ID = ''
-SPOTIPY_CLIENT_SECRET = ''
-SPOTIPY_REDIRECT_URI = ''
-username = ''
+scope = 'user-library-read'
+SPOTIPY_CLIENT_ID = '293ff85d0b44417a90c6ce737d4e31cb'
+SPOTIPY_CLIENT_SECRET = 'de5e8784ea49446c9368b646a00bed1e'
+SPOTIPY_REDIRECT_URI = 'http://127.0.0.1:8000/after-sign-in/'
+username = 'zapanet1001'
 
 from django.http import JsonResponse
 from spotifyData.serializers import PlayListSerializer
@@ -20,7 +20,7 @@ from rest_framework.filters import SearchFilter
 
 
 
-username = 'zapanet1001'
+# username = 'zapanet1001'
 
 class PlayList(object):
     def __init__(self, name, playlist_id):
