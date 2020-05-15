@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
+import SideBar from './SideBar/SideBar'
 import Tracks from './Tracks/Tracks';
 import Flex from './Flex';
 import User from './User/User';
 
 const App = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{"font-family": "'Lato', sans-serif"}}>
       <div className="navbar-fixed">
         <nav>
-          <div className="nav-wrapper indigo lighten-4">
+          <div className="nav-wrapper grey darken-4">
             <a href="/" className="brand-logo center" >Tracks</a>
           </div>
         </nav>
       </div>
-      <div className="row">
+      <Flex container justifyContent="space-between">
+          <SideBar />
           <Tracks />
-      </div>
+      </Flex>
     </div>
   );
 

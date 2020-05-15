@@ -19,13 +19,13 @@ const Tracks = () => {
 
     console.log(tracks);
     return (
-
-        <Flex container justifyContent="space-between" flexWrap="wrap">
-          {tracks.map(
-                (track,i) => 
+        <Flex className="row" container justifyContent="space-between" flexWrap="wrap">
+            {tracks.map(
+                (track) => 
                     <TrackSingle 
-                        key= {i}
-                        name={track.track.name} 
+                        key= {track.track.id}
+                        name={track.track.name}
+                        image = {track.track.album.images[0].url} 
                         type={track.track.type} 
                         popularity={track.track.popularity} />
             )}

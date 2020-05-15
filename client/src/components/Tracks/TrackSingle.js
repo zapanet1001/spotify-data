@@ -1,19 +1,23 @@
 import React from 'react';
 
-const TrackSingle = ({type, name, popularity}) => {
+const TrackSingle = ({type, name, image, popularity}) => {
     return (
-        <section>
-            <h4>{name}</h4>
-            <p>Type: {type}</p>
-            <p>Popularity: {popularity}</p>
-        </section>
+        <div className="col s3">
+        <section className="card" >
+            <div className="card-image">
+                <img src={image} alt={name} />
+            </div>
+            <div className="card-content">
+                <h4>{name}</h4>
+                <p>Type: {type}</p>
+                <p>Popularity: {popularity}</p>
+            </div>   
+        </section></div>
     )
 }
 
 // const TrackSingle = ({item}) => (
-//     <div>
-//         <p>{item.name}</p>
-//     </div>
+
     // <div className="col s4">
     //     <div className="card" id={item.id}>
     //         <div className="card-image">
