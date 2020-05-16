@@ -5,12 +5,11 @@ import Flex from '../Flex';
 
 
 
-const SideBar = ({toggleHidden}) => {
+const SideBar = ({togglePlaylists, toggleTracks}) => {
     return (
         <Flex container flexDirection="column" justifyContent="flex-start" flexWrap="wrap">
-          <p>Hello</p>
-          <button onClick={toggleHidden}>Saved Tracks</button>
-          <button onClick={toggleHidden}>User Playlists</button>
+          <button onClick={toggleTracks}>Saved Tracks</button>
+          <button onClick={togglePlaylists}>User Playlists</button>
         </Flex>
        
     )

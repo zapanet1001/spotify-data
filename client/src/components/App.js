@@ -8,11 +8,32 @@ import Flex from './Flex';
 
 
 const App = () => {
-  // var [isActive, setisActive] = useState(true);
-  var [isHidden, setisHidden] = useState(false);
+  var [playlistsHidden, setplaylistsHidden] = useState(true);
+  var [tracksHidden, settracksHidden] = useState(false);
+  var [tracksActive, settracksActive] = useState(true);
+  var [playlistsActive, setplaylistsActive] = useState(false);
 
-  const ToggleHidden = () => {
-    setisHidden(!isHidden);
+  const TogglePlaylists = () => {
+    if(!playlistsActive) {
+      setplaylistsHidden(!playlistsHidden);
+      setplaylistsActive(!playlistsActive);
+
+      settracksHidden(true);
+      settracksActive(false);
+    }
+    
+  }
+
+  const ToggleTracks = () => {
+    if(!tracksActive) {
+      settracksHidden(!tracksHidden);
+      settracksActive(!tracksActive);
+
+      setplaylistsHidden(true);
+      setplaylistsActive(false);
+      
+    }
+    
   }
 
   return (
@@ -26,10 +47,10 @@ const App = () => {
       </div>
       {/* <button onClick={ToggleHidden}> Toggle Tracks</button> */}
       <Flex container justifyContent="space-between">
-          <SideBar toggleHidden={ToggleHidden}/>
-          {!isHidden && <Tracks />}
-          {isHidden && <Playlists />}
-          
+          <SideBar togglePlaylists={TogglePlaylists} toggleTracks={ToggleTracks}/>
+          {!tracksHidden && <Tracks />}
+          {!playlistsHidden && <Playlists />}
+          {/* {isHidden && <p>Hello</p>} */}
       </Flex>
     </div>
   );
